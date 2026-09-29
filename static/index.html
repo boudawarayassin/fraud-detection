@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fraud Detection</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Fraud Detection</h1>
+            <p>AI-powered transaction analysis</p>
+        </div>
+
+        <form id="transactionForm">
+
+            <div class="form-group">
+                <label>Step</label>
+                <input type="number" id="step" required>
+            </div>
+
+            <div class="form-group">
+                <label>Transaction Type</label>
+
+                <select id="type" required>
+                    <option value="PAYMENT">PAYMENT</option>
+                    <option value="CASH_IN">CASH_IN</option>
+                    <option value="CASH_OUT">CASH_OUT</option>
+                    <option value="TRANSFER">TRANSFER</option>
+                    <option value="DEBIT">DEBIT</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Amount</label>
+                <input type="number" step="any" id="amount" required>
+            </div>
+
+            <div class="form-group">
+                <label>Old Balance Origin</label>
+                <input type="number" step="any" id="oldbalanceOrg" required>
+            </div>
+
+            <div class="form-group">
+                <label>New Balance Origin</label>
+                <input type="number" step="any" id="newbalanceOrig" required>
+            </div>
+
+            <div class="form-group">
+                <label>Old Balance Destination</label>
+                <input type="number" step="any" id="oldbalanceDest" required>
+            </div>
+
+            <div class="form-group">
+                <label>New Balance Destination</label>
+                <input type="number" step="any" id="newbalanceDest" required>
+            </div>
+
+            <button type="submit">
+                Analyze Transaction
+            </button>
+
+        </form>
+
+        <div id="result" class="result hidden">
+
+            <h2 id="prediction"></h2>
+
+            <p>
+                Fraud probability:
+                <strong id="probability"></strong>
+            </p>
+
+            <div class="probability-container">
+                <div id="probabilityBar" class="probability-bar"></div>
+            </div>
+
+            <p>
+                Decision threshold:
+                <strong id="threshold"></strong>
+            </p>
+
+            <button type="button" id="resetButton" class="reset-button">
+                Reset
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="/static/script.js"></script>
+
+</body>
+
+</html>
